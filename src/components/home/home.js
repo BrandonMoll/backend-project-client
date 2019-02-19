@@ -7,7 +7,8 @@ export default class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            loggedIn: false
+            loggedIn: false,
+            userProfile: ''
         }
     }
 
@@ -16,8 +17,9 @@ export default class Home extends Component {
         
     };
 
+    
+
     render() {
-        console.log(this.state)
         return (
             <div>
         {this.state.loggedIn ? <Notes auth={this.props.auth} /> : <NotLoggedIn /> }
