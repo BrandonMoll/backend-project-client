@@ -14,7 +14,12 @@
    
 }
 
+.pencil {
+    width: 250px;
+    margin-bottom: 30px;
+}
+
 .google {
-  
+    cursor: pointer;
     width: 300px;
 }

@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
+import './notes.css';
+
 import SingleNote from './singleNote';
 let Spinner = require('react-spinkit');
 
@@ -59,13 +61,20 @@ export default class Notes extends Component {
 
     render() {
         return (
-            <div>
-                <p>Notes page</p>
-                <p>Welcome {this.state.userProfile.given_name}</p>
+            <div className='notesContainer'>
+                <h2 className='notesHeader'>{this.state.userProfile.given_name}'s Notes</h2>
+
                 {this.state.loading ? <Spinner /> : 
                   this.state.notes.map(note => {
-                    return ( <SingleNote key={note.id} title={note.title} content={note.content} /> )})
+                    return ( <SingleNote 
+                                key={note.id}
+                                id={note.id} 
+                                title={note.title} 
+                                content={note.content}
+                                editNote={this.editNote}
+                                deleteNote={this.deleteNote} /> )})
                 }
+
                 <button onClick={this.props.auth.logout}>Logout</button>
             </div>
         )

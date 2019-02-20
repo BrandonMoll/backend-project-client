@@ -1,0 +1,48 @@
+.notesHeader {
+    color: black;
+    border-bottom: 3px solid black;
+    padding: 10px;
+}
+
+.singleNoteContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: white;
+    border: 2px solid white;
+    padding: 5px;
+    margin-bottom: 5px;
+    min-width: 400px;
+}
+.noteTitle {
+    display: block;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.noteContent {
+    border-top: 1px solid white;
+}
+
+.textArea {
+    border: none;
+    border-top: 1px solid white;
+    background-color: orange;
+    resize: none;
+    font-family: inherit;
+    text-align: center;
+    color: white;
+}
+
+.noteOptions {
+    display: flex;
+    justify-content: space-between;
+    color: red;
+    font-weight: bold;
+    padding: 0 5px;
+}
+
+.cursorPointer {
+    cursor: pointer;
+}
