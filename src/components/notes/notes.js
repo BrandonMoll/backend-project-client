@@ -2,25 +2,27 @@ import React, {Component} from 'react';
 import axios from 'axios';
 
 import SingleNote from './singleNote';
+let Spinner = require('react-spinkit');
 
 export default class Notes extends Component {
     constructor(props) {
         super(props);
         this.state = {
             userProfile: '',
-            notes: []
+            notes: [],
+            loading: false
         }
     }
 
     componentDidMount() {
-        this.setState({ userProfile: this.props.auth.getProfile() })
+        this.setState({ loading: true, userProfile: this.props.auth.getProfile() })
         this.getNotes();
     }
 
     getNotes = () => {
         axios.get('https://notesbackend.herokuapp.com/api/notes')
         .then(response => {
-          this.setState({ notes: response.data })
+          this.setState({ notes: response.data, loading: false })
         })
         .catch(err => console.log('error getting notes', err))
       }
@@ -60,11 +62,10 @@ export default class Notes extends Component {
             <div>
                 <p>Notes page</p>
                 <p>Welcome {this.state.userProfile.given_name}</p>
-                {this.state.notes.map(note => {
-                    return (
-                        <SingleNote key={note.id} title={note.title} content={note.content} />
-                    )
-                })}
+                {this.state.loading ? <Spinner /> : 
+                  this.state.notes.map(note => {
+                    return ( <SingleNote key={note.id} title={note.title} content={note.content} /> )})
+                }
                 <button onClick={this.props.auth.logout}>Logout</button>
             </div>
         )

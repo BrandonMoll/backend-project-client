@@ -1,4 +1,7 @@
 import React from 'react';
+import './login.css';
+
+import google from '../../assets/google.png'
 
 class Login extends React.Component {
     constructor(props) {
@@ -11,9 +14,11 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>Welcome to The Notes App</h1>
-                <button onClick={this.props.auth.login}>Login with Google</button>
+            <div className='loginContainer'>
+                <h1 className="loginHeader">Welcome to The Notes App</h1>
+                <img src={google} onClick={this.props.auth.login} className="google" />
+                
+                
             </div>
         )
     }
