@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
+
 import './notes.css';
 
 import SingleNote from './singleNote';
+
 let Spinner = require('react-spinkit');
 
 export default class Notes extends Component {
