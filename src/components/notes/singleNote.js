@@ -10,7 +10,7 @@ export default class SingleNote extends Component {
             contentHidden: true,
             textAreaHidden: true,
             title: this.props.title,
-            content: this.props.content
+            content: this.props.content,
         }
     }
 
@@ -19,6 +19,11 @@ export default class SingleNote extends Component {
     }
 
     editHiddenHandler = () => {
+        this.setState({ textAreaHidden: !this.state.textAreaHidden, contentHidden: !this.state.contentHidden })
+    }
+
+    editSubmitHandler = (id, title, text) => {
+        this.props.editNote(id, title, text);
         this.setState({ textAreaHidden: !this.state.textAreaHidden, contentHidden: !this.state.contentHidden })
     }
 
@@ -37,6 +42,7 @@ export default class SingleNote extends Component {
                 <Textarea className='textArea' value={this.state.content} onChange={this.inputHandler} name='content' hidden={this.state.textAreaHidden} />
                 <div className='noteOptions' >
                     <span hidden={this.state.contentHidden} onClick={this.editHiddenHandler} className='cursorPointer'>Edit</span>
+                    <span hidden={this.state.textAreaHidden} onClick={() => this.editSubmitHandler(this.props.id, this.state.title, this.state.content)} className='cursorPointer submit'>Submit</span>
                     <span hidden={this.state.contentHidden} className='cursorPointer' onClick={() => this.props.deleteNote(this.props.id)}>Delete</span>
                 </div>
             </div>

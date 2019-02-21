@@ -48,3 +48,9 @@
 .cursorPointer {
     cursor: pointer;
 }
+
+.submit {
+    color: green;
+    font-weight: bold;
+    align-self: center;
+}
