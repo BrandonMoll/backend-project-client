@@ -22,7 +22,7 @@ export default class Home extends Component {
     render() {
         return (
             <div>
-        {this.state.loggedIn ? <Notes auth={this.props.auth} /> : <NotLoggedIn /> }
+        {this.state.loggedIn ? <Notes {...this.props} auth={this.props.auth} /> : <NotLoggedIn /> }
             </div>
         )
     }

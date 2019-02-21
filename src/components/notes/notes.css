@@ -15,6 +15,20 @@
     min-width: 400px;
     max-width: 400px;
 }
+
+.createNoteContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: white;
+    border: 2px solid white;
+    padding: 5px;
+    margin-bottom: 5px;
+    min-width: 400px;
+    max-width: 400px;
+    min-height: 400px;
+}
+
 .noteTitle {
     display: block;
     font-weight: bold;
@@ -24,12 +38,23 @@
 
 .noteContent {
     border-top: 1px solid white;
+    width: 100%;
 }
 
 .textArea {
     resize: none;
     border: none;
     border-top: 1px solid white;
+    background-color: orange;
+    font-family: inherit;
+    font-weight: italic;
+    text-align: center;
+    color: white;
+}
+
+.createNoteTextArea {
+    resize: none;
+    border: none;
     background-color: orange;
     font-family: inherit;
     font-weight: italic;

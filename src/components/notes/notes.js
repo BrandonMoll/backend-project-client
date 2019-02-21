@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
+import { Route, Link } from 'react-router-dom';
 import axios from 'axios';
-
-
 import './notes.css';
 
 import SingleNote from './singleNote';
+import CreateNote from './createNote';
 
 let Spinner = require('react-spinkit');
 
@@ -39,7 +39,8 @@ export default class Notes extends Component {
         .then(response => {
           this.getNotes();
         })
-        .catch(err => console.log('error creating note', err)) 
+        .catch(err => console.log('error creating note', err));
+        this.props.history.push('/home')
       }
   
       deleteNote = (id) => {
@@ -68,16 +69,20 @@ export default class Notes extends Component {
 
                 {this.state.loading ? <Spinner /> : 
                   this.state.notes.map(note => {
-                    return ( <SingleNote 
+                    return (  <Route exact path='/home' key={note.id} render={(props) =>  <SingleNote 
                                 key={note.id}
                                 id={note.id} 
                                 title={note.title} 
                                 content={note.content}
                                 editNote={this.editNote}
-                                deleteNote={this.deleteNote} /> )})
+                                deleteNote={this.deleteNote} /> } /> )})
                 }
 
+                <Route exact path='/home/createnote' render={(props) => <CreateNote createNote={this.createNote} /> } />
+                  
                 <button onClick={this.props.auth.logout}>Logout</button>
+                <Link to='/home/createnote'><button>Create note</button></Link>
+
             </div>
         )
     }

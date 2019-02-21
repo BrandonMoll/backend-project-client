@@ -23,7 +23,7 @@ class App extends Component {
       <div className="App">
         <Route exact path='/' render={(props) => <Login auth={auth} /> } />
         <Route path='/callback' render={(props) => <Callback /> } />
-        <Route exact path='/home' render={(props) => <Home auth={auth} /> } />
+        <Route path='/home' render={(props) => <Home {...props} auth={auth} /> } />
         <Route path='/fail' component={NotLoggedIn} />
         
       </div>
