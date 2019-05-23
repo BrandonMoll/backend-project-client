@@ -9,7 +9,7 @@ export default class Auth {
     auth0 = new auth0.WebAuth({
         domain: 'dev-g9ykzo4k.auth0.com',
         clientID: 'HgSuM0erDSY6GvFv8oz3IzvyKRS3Lxae',
-        redirectUri: 'https://focused-wright-f099b5.netlify.com/callback',
+        redirectUri: 'http://localhost:3000/callback',
         audience: 'https://dev-g9ykzo4k.auth0.com/userinfo',
         responseType: 'token id_token',
         scope: 'openid profile'
